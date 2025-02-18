@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0071)file:///Users/willgottsegen_1/Downloads/journalist-portfolio%20(3).html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will Gottsegen</title>
-    <link rel="stylesheet" href="./Will Gottsegen_files/inter.css" integrity="sha512-3kSeajrEqk9xImCTJ7zQP0JMLsTgUQpDMf/e5XZyf6GZzZ9dZZUUMrb0O126jG9ECO3Q9cY2S/l9zbyTnNs7CQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./Will Gottsegen_files/inter.css" integrity="sha512-3kSeajrEqk9xImCTJ7zQP0JMLsTgUQpDMf/e5XZyf6GZzZ9dZUUMrb0O126jG9ECO3Q9cY2S/l9zbyTnNs7CQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         /* Reset and Base Styles */
         * {
@@ -285,25 +285,11 @@
             body {
                 overflow-y: auto;
             }
-        }
             
-            .contact {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            
-            .social-links {
-                display: flex;
-                gap: 1rem;
-            }
-            
-            .social-links a {
-                margin-left: 0;
-            }
-            
-            body {
-                overflow-y: auto;
+            /* Ensure bio is fully displayed without scrolling */
+            .bio {
+                max-height: none;
+                overflow-y: visible;
             }
         }
         
@@ -329,6 +315,12 @@
             .photo-panel, .content-panel {
                 padding: 1rem;
             }
+            
+            /* Ensure bio is fully displayed without scrolling */
+            .bio {
+                max-height: none;
+                overflow-y: visible;
+            }
         }
         
         /* For very small devices */
@@ -341,6 +333,12 @@
                 font-size: 0.8rem;
                 word-break: break-word;
             }
+            
+            /* Ensure bio is fully displayed without scrolling */
+            .bio {
+                max-height: none;
+                overflow-y: visible;
+            }
         }
         
         /* For devices that support hover */
@@ -350,15 +348,16 @@
             }
         }
         
-        /* For tall but narrow devices (iPhone X etc) */
+        /* For tall but narrow devices (iPhone X etc) - REMOVE THE OVERFLOW RESTRICTION */
         @media (max-height: 700px) and (max-width: 480px) {
             .photo-container {
                 max-height: 25vh;
             }
             
+            /* Remove the height constraint and overflow */
             .bio {
-                max-height: 20vh;
-                overflow-y: auto;
+                max-height: none;
+                overflow-y: visible;
             }
         }
     </style>
@@ -388,25 +387,23 @@
                         <h3>Tech</h3>
                         <div class="publication-list">
                             <div class="publication-item">
-                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2022/11/sam-bankman-fried-bankruptcy-crypto-ftx/672104/" target="_blank">Crypto’s Enron Moment Has Arrived</a></div>
+                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2022/11/sam-bankman-fried-bankruptcy-crypto-ftx/672104/" target="_blank">Crypto's Enron Moment Has Arrived</a></div>
                                 <div class="publication-source">The Atlantic</div>
                             </div>
                             <div class="publication-item">
-                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2023/01/ticketmaster-taylor-swift-presale-issue-live-nation/672869/" target="_blank">Even When Ticketmaster Works, It Doesn’t</a></div>
+                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2023/01/ticketmaster-taylor-swift-presale-issue-live-nation/672869/" target="_blank">Even When Ticketmaster Works, It Doesn't</a></div>
                                 <div class="publication-source">The Atlantic</div>
                             </div>
                             <div class="publication-item">
-                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2025/01/donald-trump-crypto-billionaire/681388/" target="_blank">The Crypto World Is Already Mad at Trump
-
-</a></div>
+                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2025/01/donald-trump-crypto-billionaire/681388/" target="_blank">The Crypto World Is Already Mad at Trump</a></div>
                                 <div class="publication-source">The Atlantic</div>
                             </div>
                             <div class="publication-item">
-                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2024/03/sbf-crypto-sentencing/677913/" target="_blank">Sam Bankman-Fried’s Dream Came True</a></div>
+                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2024/03/sbf-crypto-sentencing/677913/" target="_blank">Sam Bankman-Fried's Dream Came True</a></div>
                                 <div class="publication-source">The Atlantic</div>
                             </div>
                             <div class="publication-item">
-                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2022/09/crypto-technology-government-regulation/671375/" target="_blank">Crypto’s Core Values Are Running Headfirst Into Reality</a></div>
+                                <div class="publication-title"><a href="https://www.theatlantic.com/technology/archive/2022/09/crypto-technology-government-regulation/671375/" target="_blank">Crypto's Core Values Are Running Headfirst Into Reality</a></div>
                                 <div class="publication-source">The Atlantic</div>
                             </div>
                             <div class="publication-item">
@@ -422,10 +419,9 @@
                                 <div class="publication-source">CoinDesk</div>
                             </div>
                             <div class="publication-item">
-                                <div class="publication-title"><a href="https://www.rollingstone.com/culture/culture-features/changpeng-zhao-cz-crypto-binance-1234740435/" target="_blank">Crypto’s Richest Man Is Waiting Out the Chaos</a></div>
+                                <div class="publication-title"><a href="https://www.rollingstone.com/culture/culture-features/changpeng-zhao-cz-crypto-binance-1234740435/" target="_blank">Crypto's Richest Man Is Waiting Out the Chaos</a></div>
                                 <div class="publication-source">Rolling Stone</div>
                             </div>
-                            
                         </div>
                     </div>
                     
@@ -472,8 +468,6 @@
                                 <div class="publication-title"><a href="https://pitchfork.com/reviews/albums/rostam-changephobia/" target="_blank">Rostam</a></div>
                                 <div class="publication-source">Pitchfork</div>
                             </div>
-                            
-                            
                         </div>
                     </div>
                     
@@ -499,5 +493,5 @@
             </div>
         </div>
     </div>
-
-</body></html>
+</body>
+</html>
