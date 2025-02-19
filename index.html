@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0069)file:///Users/willgottsegen_1/Documents/Porfolio%20Website/index.html -->
+<!-- saved from url=(0069)file:///Users/willgottsegen_1/Downloads/updated-index-html%20(1).html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,23 @@
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
             color: #e51b23;
+        }
+        
+        /* Custom cursor styles */
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            font-size: 24px;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.1s ease;
+            color: #e51b23;
+            user-select: none;
+        }
+        
+        .photo-panel.cursor-active {
+            cursor: none !important;
         }
         
         body {
@@ -363,11 +380,14 @@
     </style>
 </head>
 <body>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" aria-hidden="true" style="opacity: 0; left: 602px; top: 276px;">ʕ•ᴥ•ʔ</div>
+    
     <div class="container">
         <!-- Left Panel with Photo -->
         <div class="photo-panel">
             <div class="photo-container">
-                <img src="IMG_3383.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                <img src="./updated-index-html (1)_files/IMG_3383.png" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
 
             </div>
         </div>
@@ -495,5 +515,51 @@
         </div>
     </div>
 
+    <script>
+        // Wait for the page to fully load
+        window.addEventListener('load', function() {
+            const customCursor = document.querySelector('.custom-cursor');
+            const photoPanel = document.querySelector('.photo-panel');
+            
+            if (!customCursor || !photoPanel) {
+                console.error('Custom cursor elements not found');
+                return;
+            }
+            
+            // Function to update cursor position
+            function updateCursorPosition(e) {
+                requestAnimationFrame(() => {
+                    customCursor.style.left = `${e.clientX}px`;
+                    customCursor.style.top = `${e.clientY}px`;
+                });
+            }
+            
+            // Show custom cursor when mouse enters photo panel
+            photoPanel.addEventListener('mouseenter', function() {
+                photoPanel.classList.add('cursor-active');
+                customCursor.style.opacity = '1';
+                document.addEventListener('mousemove', updateCursorPosition);
+            });
+            
+            // Hide custom cursor when mouse leaves photo panel
+            photoPanel.addEventListener('mouseleave', function() {
+                photoPanel.classList.remove('cursor-active');
+                customCursor.style.opacity = '0';
+                document.removeEventListener('mousemove', updateCursorPosition);
+            });
+            
+            // Initialize cursor position if mouse is already in the photo panel
+            if (photoPanel.matches(':hover')) {
+                const event = new MouseEvent('mouseenter');
+                photoPanel.dispatchEvent(event);
+            }
+            
+            // Touch device handling - hide custom cursor on touch devices
+            if ('ontouchstart' in window) {
+                photoPanel.classList.remove('cursor-active');
+                customCursor.style.display = 'none';
+            }
+        });
+    </script>
 
 </body></html>
