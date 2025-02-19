@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0069)file:///Users/willgottsegen_1/Downloads/updated-index-html%20(1).html -->
+<!-- saved from url=(0069)file:///Users/willgottsegen_1/Documents/Porfolio%20Website/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,7 @@
             transition: opacity 0.1s ease;
             color: #e51b23;
             user-select: none;
+            will-change: transform;
         }
         
         .photo-panel.cursor-active {
@@ -48,8 +49,8 @@
         
         /* Left Panel with Photo */
         .photo-panel {
-            flex: 1;
-            padding: 2rem;
+            flex: 0 0 40%;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -72,7 +73,7 @@
         /* Right Panel with Content */
         .content-panel {
             flex: 1;
-            padding: 2rem;
+            padding: 2rem 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -381,7 +382,7 @@
 </head>
 <body>
     <!-- Custom cursor element -->
-    <div class="custom-cursor" aria-hidden="true" style="opacity: 0; left: 602px; top: 276px;">ʕ•ᴥ•ʔ</div>
+    <div class="custom-cursor" aria-hidden="true">ʕ•ᴥ•ʔ</div>
     
     <div class="container">
         <!-- Left Panel with Photo -->
@@ -528,24 +529,21 @@
             
             // Function to update cursor position
             function updateCursorPosition(e) {
-                requestAnimationFrame(() => {
-                    customCursor.style.left = `${e.clientX}px`;
-                    customCursor.style.top = `${e.clientY}px`;
-                });
+                customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
             }
             
             // Show custom cursor when mouse enters photo panel
             photoPanel.addEventListener('mouseenter', function() {
                 photoPanel.classList.add('cursor-active');
                 customCursor.style.opacity = '1';
-                document.addEventListener('mousemove', updateCursorPosition);
+                document.addEventListener('mousemove', updateCursorPosition, {passive: true});
             });
             
             // Hide custom cursor when mouse leaves photo panel
             photoPanel.addEventListener('mouseleave', function() {
                 photoPanel.classList.remove('cursor-active');
                 customCursor.style.opacity = '0';
-                document.removeEventListener('mousemove', updateCursorPosition);
+                document.removeEventListener('mousemove', updateCursorPosition, {passive: true});
             });
             
             // Initialize cursor position if mouse is already in the photo panel
@@ -561,5 +559,4 @@
             }
         });
     </script>
-
 </body></html>
