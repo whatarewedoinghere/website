@@ -360,56 +360,9 @@
                 overflow-y: visible;
             }
         }
-        
-        /* Scrolling text bar */
-        .scrolling-text-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 40%;
-            height: 30px;
-            border-top: 2px solid #e51b23;
-            border-right: 2px solid #e51b23;
-            background-color: #fff8f8;
-            overflow: hidden;
-            z-index: 1000;
-        }
-        
-        .scrolling-text {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            white-space: nowrap;
-            font-size: 0.9rem;
-            color: #e51b23;
-            animation: scroll-left 120s linear infinite;
-        }
-        
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(calc(40vw - 2px)) translateY(-50%);
-            }
-            100% {
-                transform: translateX(-100%) translateY(-50%);
-            }
-        }
-        
-        /* Responsive adjustments for scrolling text */
-        @media (max-width: 768px) {
-            .scrolling-text-container {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Scrolling text bar -->
-    <div class="scrolling-text-container">
-        <div class="scrolling-text">
-            Love bade me welcome yet my soul drew back guilty of dust and sin but quick-eyed Love observing me grow slack from my first entrance in drew nearer to me sweetly questioning if I lacked anything a guest I answered worthy to be here Love said you shall be he I the unkind ungrateful ah my dear I cannot look on thee Love took my hand and smiling did reply who made the eyes but I truth Lord but I have marred them let my shame go where it doth deserve and know you not says Love who bore the blame my dear then I will serve you must sit down says Love and taste my meat so I did sit and eat
-        </div>
-    </div>
-    
     <div class="container">
         <!-- Left Panel with Photo -->
         <div class="photo-panel">
